@@ -1,0 +1,25 @@
+# File: JetCorrections.cff
+# Author: R. Harris
+# Date: 7/24/06
+#
+# Jet corrections for the icone5, mcone5, and mcone7 jets.
+# These are the most appropriate available ORCA derived corrections for 
+# these default CMSSW jets made with scheme B noise suppression.
+# 
+
+	module corJetIcone5 = MCJet {
+                string src = "CaloJetIcone5"
+                string tagName = 'Volume_II_Jet_Recommendations_number_2'  
+        }
+
+	module corJetMcone5 = MCJet {
+                string src = "CaloJetMcone5"
+                string tagName = 'Volume_II_Jet_Recommendations_number_7'  
+        }
+
+	module corJetMcone7 = MCJet {
+                string src = "CaloJetMcone7"
+                string tagName = 'Volume_II_Jet_Recommendations_number_8'  
+        }
+
+        sequence JetCorrections = {  corJetIcone5, corJetMcone5, corJetMcone7}

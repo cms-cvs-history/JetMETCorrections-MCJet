@@ -8,17 +8,17 @@
 # 
 
 	module corJetIcone5 = MCJet {
-                string src = "iterativeCone5CaloJets"
+                InputTag src   = iterativeCone5CaloJets
                 string tagName = 'Volume_II_Jet_Recommendations_number_2'  
         }
 
 	module corJetMcone5 = MCJet {
-                string src = "midPointCone5CaloJets"
+                InputTag src = midPointCone5CaloJets
                 string tagName = 'Volume_II_Jet_Recommendations_number_7'  
         }
 
 	module corJetMcone7 = MCJet {
-                string src = "midPointCone7CaloJets"
+                InputTag src = midPointCone7CaloJets
                 string tagName = 'Volume_II_Jet_Recommendations_number_8'  
         }
 

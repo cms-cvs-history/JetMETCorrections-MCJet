@@ -14,7 +14,6 @@ mkdir -p check
 cd check
 cp ../MC5*.C .
 cp ../runChecksMC5.csh .
-cp ../SimJetResponseMidPoint_R05_all.root .
 #
 # Midpoint Cone R=0.7
 #
@@ -41,7 +40,6 @@ sed -f sedscript1 MC5eta226-441Resp.C > MC7eta226-441Resp.C
 sed -f sedscript1 MC5eta0-226Resp.C > MC7eta0-226Resp.C
 rm sedscript1
 sed s/MC5/MC7/g runChecksMC5.csh > runChecksMC7.csh
-cp ../SimJetResponseMidPoint_R07_all.root .
 #
 # Iterative Cone R=0.5
 #
@@ -68,7 +66,6 @@ sed -f sedscript2 MC5eta226-441Resp.C > IC5eta226-441Resp.C
 sed -f sedscript2 MC5eta0-226Resp.C > IC5eta0-226Resp.C
 rm sedscript2
 sed s/MC5/IC5/g runChecksMC5.csh > runChecksIC5.csh
-cp ../SimJetResponseIter_R05_all.root .
 #
 # KT D=1.0
 #
@@ -95,4 +92,3 @@ sed -f sedscript3 MC5eta226-441Resp.C > KTeta226-441Resp.C
 sed -f sedscript3 MC5eta0-226Resp.C > KTeta0-226Resp.C
 rm sedscript3
 sed s/MC5/KT/g runChecksMC5.csh > runChecksKT.csh
-cp ../SimJetResponseKt_all.root .

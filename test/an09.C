@@ -10,7 +10,7 @@ gStyle->SetCanvasColor(10);
 gStyle->SetFrameFillColor(10);
 
 
-TFile f("SimJetResponseMidPoint_R05_all_new.root");
+TFile f("../SimJetResponseMidPoint_R05_all.root");
 
 JetResponseEt10Eta7->Add(JetResponseEt10Eta24,1);
 JetResponseEt12Eta7->Add(JetResponseEt12Eta24,1);

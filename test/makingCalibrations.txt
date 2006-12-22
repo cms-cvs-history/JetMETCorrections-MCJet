@@ -1,0 +1,46 @@
+To make the MCJet calibrations:
+
+1) Get the and build the code for your release and go to test area
+
+     scramv1 project CMSSW CMSSW_1_0_3
+     cd CMSSW_1_0_3/src
+     cmscvsroot CMSSW
+     cvs co -r JetResponseV4 JetMETCorrections/MCJet
+     eval `scramv1 runtime -csh`
+     scramv1 b
+     cd JetMETCorrections/MCJet/test
+
+2) modify test config SimJetResponseAnalysis.cfg to point to your test sample.
+
+3) run test job
+
+     cmsRun SimJetResponseAnalysis.cfg >&! SimJetResponseAnalysis.log &
+
+   and look at output file SimJetResponseMidPoint_R05_test.root
+
+4) Modify full config files to point at your full sample
+   Modify SimJetCSA06*.cfg and write out SimJet*.cfg without the CSA06
+   (SimJet_MidpointR5.cfg,  SimJet_MidpointR7.cfg, SimJetCSA06_IterativeR5.cfg, etc.)
+   
+5) Run createCondorJob.csh and examine the output job for MidpointR5.
+
+6) Submit the job with condor_submit CondorJob_MidPointR5
+
+7) Create the rest of the jobs
+     source moreCondorJobs.csh 
+   and submit them
+     condor_submit CondorJob_MidPointR7
+     condor_submit CondorJob_IterativeR5
+     condor_submit CondorJob_Kt
+     
+8) When the jobs complete make the checking scripts
+     source makeCheckingScripts.csh
+   and run them
+     source runChecksMC5.csh
+     source runChecksMC7.csh
+     source runChecksIC5.csh
+     source runChecksKT.csh
+   examining the histos and type .q at the root prompt between plots.  You will
+   be in the check directory and the check plots will be saved in check/plots/
+
+9) 

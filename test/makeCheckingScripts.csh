@@ -1,6 +1,20 @@
 #!/bin/tcsh
 #
-# Make the response checking scripts from the MC5 ones.
+# Make the response checking root scripts, and the running scripts, 
+# from the MC5 version.  From JetMETCorrections/MCJet/test do a 
+#     source makeCheckScripts.csh
+# and the script will populate a subdirectory called check with the scripts,
+# and put you in that sub-directory.  From there you source the runChecks
+# scripts see the response distributions.
+#
+# Make the check directory structure and populate it with the 
+# appropriate scripts
+#
+mkdir -p check
+cd check
+cp ../MC5*.C .
+cp ../runChecksMC5.csh .
+cp ../SimJetResponseMidPoint_R05_all.root .
 #
 # Midpoint Cone R=0.7
 #
@@ -26,6 +40,8 @@ sed -f sedscript1 MC5eta751-991Resp.C > MC7eta751-991Resp.C
 sed -f sedscript1 MC5eta226-441Resp.C > MC7eta226-441Resp.C
 sed -f sedscript1 MC5eta0-226Resp.C > MC7eta0-226Resp.C
 rm sedscript1
+sed s/MC5/MC7/g runChecksMC5.csh > runChecksMC7.csh
+cp ../SimJetResponseMidPoint_R07_all.root .
 #
 # Iterative Cone R=0.5
 #
@@ -51,6 +67,8 @@ sed -f sedscript2 MC5eta751-991Resp.C > IC5eta751-991Resp.C
 sed -f sedscript2 MC5eta226-441Resp.C > IC5eta226-441Resp.C
 sed -f sedscript2 MC5eta0-226Resp.C > IC5eta0-226Resp.C
 rm sedscript2
+sed s/MC5/IC5/g runChecksMC5.csh > runChecksIC5.csh
+cp ../SimJetResponseIter_R05_all.root .
 #
 # KT D=1.0
 #
@@ -76,3 +94,5 @@ sed -f sedscript3 MC5eta751-991Resp.C > KTeta751-991Resp.C
 sed -f sedscript3 MC5eta226-441Resp.C > KTeta226-441Resp.C
 sed -f sedscript3 MC5eta0-226Resp.C > KTeta0-226Resp.C
 rm sedscript3
+sed s/MC5/KT/g runChecksMC5.csh > runChecksKT.csh
+cp ../SimJetResponseKt_all.root .

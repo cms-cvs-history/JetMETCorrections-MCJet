@@ -2,8 +2,8 @@
 
   gROOT->SetStyle("Plain");
   gStyle->SetOptStat(00000);
-  TFile f1("SimJetResponseMidPoint_R05_all.root");
-  //TFile f1("SimJetResponseMidPoint_R05_all.root");
+  TFile f1("../SimJetResponseMidPoint_R05_all.root");
+  //TFile f1("../SimJetResponseMidPoint_R05_all.root");
 
   TCanvas *myc1 = new TCanvas("myc1","",1000,1000);
   myc1->Divide(2,2);  

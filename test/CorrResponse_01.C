@@ -10,7 +10,7 @@ gStyle->SetCanvasColor(10);
 gStyle->SetFrameFillColor(10);
 
 
-TFile f("../CorrectedJetResponseMidPoint_R05_1sigma_all.root");
+TFile f("../../CorrectedJetResponseMidPoint_R05_all.root");
 
 JetResponseEt10Eta15->Add(JetResponseEt10Eta16,1);
 JetResponseEt12Eta15->Add(JetResponseEt12Eta16,1);
@@ -64,87 +64,87 @@ Int_t n = 21;
 TF1 *fit[n];
  
 JetResponseEt10Eta15->Fit("gaus","","",0.5,1.5);
-c1.Print("tmp/1sigma/JetResponseEt10Eta15.gif");
+c1.Print("tmp/JetResponseEt10Eta15.gif");
 fit[0] = JetResponseEt10Eta15->GetFunction("gaus");
  
 JetResponseEt12Eta15->Fit("gaus","","",0.6,1.4);
-c1.Print("tmp/1sigma/JetResponseEt12Eta15.gif");
+c1.Print("tmp/JetResponseEt12Eta15.gif");
 fit[1] = JetResponseEt12Eta15->GetFunction("gaus");
  
 JetResponseEt15Eta15->Fit("gaus","","",0.7,1.3);
-c1.Print("tmp/1sigma/JetResponseEt15Eta15.gif");
+c1.Print("tmp/JetResponseEt15Eta15.gif");
 fit[2] = JetResponseEt15Eta15->GetFunction("gaus");
  
 JetResponseEt20Eta15->Fit("gaus","","",0.8,1.2);
-c1.Print("tmp/1sigma/JetResponseEt20Eta15.gif");
+c1.Print("tmp/JetResponseEt20Eta15.gif");
 fit[3] = JetResponseEt20Eta15->GetFunction("gaus");
  
 JetResponseEt27Eta15->Fit("gaus","","",0.8,1.2);
-c1.Print("tmp/1sigma/JetResponseEt27Eta15.gif");
+c1.Print("tmp/JetResponseEt27Eta15.gif");
 fit[4] = JetResponseEt27Eta15->GetFunction("gaus");
  
 JetResponseEt35Eta15->Fit("gaus","","",0.8,1.2);
-c1.Print("tmp/1sigma/JetResponseEt35Eta15.gif");
+c1.Print("tmp/JetResponseEt35Eta15.gif");
 fit[5] = JetResponseEt35Eta15->GetFunction("gaus");
                                                                                 
 JetResponseEt45Eta15->Fit("gaus","","",0.81,1.19);
-c1.Print("tmp/1sigma/JetResponseEt45Eta15.gif");
+c1.Print("tmp/JetResponseEt45Eta15.gif");
 fit[6] = JetResponseEt45Eta15->GetFunction("gaus");
  
 JetResponseEt57Eta15->Fit("gaus","","",0.82,1.18);
-c1.Print("tmp/1sigma/JetResponseEt57Eta15.gif");
+c1.Print("tmp/JetResponseEt57Eta15.gif");
 fit[7] = JetResponseEt57Eta15->GetFunction("gaus");
 
 JetResponseEt72Eta15->Fit("gaus","","",0.84,1.16);
-c1.Print("tmp/1sigma/JetResponseEt72Eta15.gif");
+c1.Print("tmp/JetResponseEt72Eta15.gif");
 fit[8] = JetResponseEt72Eta15->GetFunction("gaus");
 
 JetResponseEt90Eta15->Fit("gaus","","",0.85,1.15);
-c1.Print("tmp/1sigma/JetResponseEt90Eta15.gif");
+c1.Print("tmp/JetResponseEt90Eta15.gif");
 fit[9] = JetResponseEt90Eta15->GetFunction("gaus");
 
 JetResponseEt120Eta15->Fit("gaus","","",0.87,1.13);
-c1.Print("tmp/1sigma/JetResponseEt120Eta15.gif");
+c1.Print("tmp/JetResponseEt120Eta15.gif");
 fit[10] = JetResponseEt120Eta15->GetFunction("gaus");
 
 JetResponseEt150Eta15->Fit("gaus","","",0.88,1.12);
-c1.Print("tmp/1sigma/JetResponseEt150Eta15.gif");
+c1.Print("tmp/JetResponseEt150Eta15.gif");
 fit[11] = JetResponseEt150Eta15->GetFunction("gaus");
 
 JetResponseEt200Eta15->Fit("gaus","","",0.88,1.12);
-c1.Print("tmp/1sigma/JetResponseEt200Eta15.gif");
+c1.Print("tmp/JetResponseEt200Eta15.gif");
 fit[12] = JetResponseEt200Eta15->GetFunction("gaus");
 
 JetResponseEt300Eta15->Fit("gaus","","",0.90,1.10);
-c1.Print("tmp/1sigma/JetResponseEt300Eta15.gif");
+c1.Print("tmp/JetResponseEt300Eta15.gif");
 fit[13] = JetResponseEt300Eta15->GetFunction("gaus");
 
 JetResponseEt400Eta15->Fit("gaus","","",0.92,1.08);
-c1.Print("tmp/1sigma/JetResponseEt400Eta15.gif");
+c1.Print("tmp/JetResponseEt400Eta15.gif");
 fit[14] = JetResponseEt400Eta15->GetFunction("gaus");
 
 JetResponseEt550Eta15->Fit("gaus","","",0.93,1.07);
-c1.Print("tmp/1sigma/JetResponseEt550Eta15.gif");
+c1.Print("tmp/JetResponseEt550Eta15.gif");
 fit[15] = JetResponseEt550Eta15->GetFunction("gaus");
 
 JetResponseEt750Eta15->Fit("gaus","","",0.94,1.06);
-c1.Print("tmp/1sigma/JetResponseEt750Eta15.gif");
+c1.Print("tmp/JetResponseEt750Eta15.gif");
 fit[16] = JetResponseEt750Eta15->GetFunction("gaus");
 
 JetResponseEt1000Eta15->Fit("gaus","","",0.94,1.06);
-c1.Print("tmp/1sigma/JetResponseEt1000Eta15.gif");
+c1.Print("tmp/JetResponseEt1000Eta15.gif");
 fit[17] = JetResponseEt1000Eta15->GetFunction("gaus");
 
 JetResponseEt1400Eta15->Fit("gaus","","",0.94,1.06);
-c1.Print("tmp/1sigma/JetResponseEt1400Eta15.gif");
+c1.Print("tmp/JetResponseEt1400Eta15.gif");
 fit[18] = JetResponseEt1400Eta15->GetFunction("gaus");
 
 JetResponseEt2000Eta15->Fit("gaus","","",0.94,1.06);
-c1.Print("tmp/1sigma/JetResponseEt2000Eta15.gif");
+c1.Print("tmp/JetResponseEt2000Eta15.gif");
 fit[19] = JetResponseEt2000Eta15->GetFunction("gaus");
 
 JetResponseEt2900Eta15->Fit("gaus","","",0.94,1.06);
-c1.Print("tmp/1sigma/JetResponseEt2900Eta15.gif");
+c1.Print("tmp/JetResponseEt2900Eta15.gif");
 fit[20] = JetResponseEt2900Eta15->GetFunction("gaus");
 
 //JetResponseEt4500Eta15->Fit("gaus");
@@ -256,7 +256,7 @@ ye[19]=EtGenJetEt2000Eta15->GetRMS() / sqrt(EtGenJetEt2000Eta15->GetEntries());
 ye[20]=EtGenJetEt2900Eta15->GetRMS() / sqrt(EtGenJetEt2900Eta15->GetEntries());
 //ye[21]=EtGenJetEt4500Eta15->GetRMS() / sqrt(EtGenJetEt4500Eta15->GetEntries());
 
-ofstream outFile("CorrResponse_01_1sigma.dat");
+ofstream outFile("CorrResponse_01.dat");
 for (Int_t i=0; i<n; i++){
   outFile << "  " << y[i] << "  " << x[i] << "  " << xe[i] << endl;
 }
@@ -287,7 +287,7 @@ l = new TLine(10,1.0,3500,1.0);
 l->SetLineStyle(2);
 l->Draw();
   
-c2hA.Print("CorrResponse_01_1sigma.eps");
-c2hA.Print("CorrResponse_01_1sigma.gif");
+c2hA.Print("CorrResponse_01.eps");
+c2hA.Print("CorrResponse_01.gif");
 
 }

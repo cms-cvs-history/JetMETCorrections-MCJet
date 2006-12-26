@@ -5,7 +5,7 @@
 # Usage: user types "source runChecksMC5.csh" and enters .q at the
 #        root prompt between displayed histograms after visual inpsection.
 #
-# Output is the response in .ps, .eps and .gif files in subdirectory plots/MC5.
+# Output is the response in .ps, .eps and .gif files
 #
 root.exe MC5eta0-226Resp.C
 root.exe MC5eta226-441Resp.C
@@ -23,7 +23,3 @@ root.exe MC5eta2916-3284Resp.C
 root.exe MC5eta3284-4000Resp.C
 root.exe MC5eta4000-4400Resp.C
 root.exe MC5eta4400-4800Resp.C
-mkdir -p plots/MC5
-mv MC5*.gif plots/MC5
-mv MC5*.eps plots/MC5
-mv MC5*.ps  plots/MC5

@@ -20,27 +20,66 @@ To make the MCJet calibrations:
 
 4) Modify full config files to point at your full sample
    Modify SimJetCSA06*.cfg and write out SimJet*.cfg without the CSA06
-   (SimJet_MidpointR5.cfg,  SimJet_MidpointR7.cfg, SimJetCSA06_IterativeR5.cfg, etc.)
+   (SimJet_MidpointR5.cfg,  SimJet_MidpointR7.cfg, SimJet_IterativeR5.cfg, etc.)
    
 5) Run createCondorJob.csh and examine the output job for MidpointR5.
 
 6) Submit the job with condor_submit CondorJob_MidPointR5
 
-7) Create the rest of the jobs
+7) Create the rest of the condor jobs including corrected ones
      source moreCondorJobs.csh 
    and submit them
      condor_submit CondorJob_MidPointR7
      condor_submit CondorJob_IterativeR5
      condor_submit CondorJob_Kt
      
-8) When the jobs complete make the checking scripts
+8) When the jobs complete, make the checking scripts
      source makeCheckingScripts.csh
-   and run them
-     source runChecksMC5.csh
-     source runChecksMC7.csh
-     source runChecksIC5.csh
-     source runChecksKT.csh
-   examining the histos and type .q at the root prompt between plots.  You will
-   be in the check directory and the check plots will be saved in check/plots/
+   This puts you in the check directory. Run the 
+   scripts in the appropriate sub-directory of check:
+     cd MC5; source runChecksMC5.csh; cd ..;
+     cd MC7; source runChecksMC7.csh; cd ..;
+     cd IC5; source runChecksIC5.csh; cd ..;
+     cd KT;  source runChecksKT.csh; cd ..;
+   examining the histos and type .q at the root prompt between plots.
+   The histograms are saved as .gif, .eps and .ps files.
 
-9) 
+9) Make the analysis scripts from the MCJet/test directory
+     source makeAnalysisScripts.csh
+   This puts you in the ana directory. Run the 
+   scripts in the appropriate sub-directory of ana:
+     cd MC5; source runAna.csh; cd ..;
+     cd MC7; source runAna.csh; cd ..;
+     cd IC5; source runAna.csh; cd ..;
+     cd KT;  source runAna.csh; cd ..;
+   make sure the 1 sigma Gaussian fits are working and the fit of
+   the response versus Et is working. Type .q at the root prompt between
+   each set of plots. The gaus fits are saved in the /tmp sub-directory for
+   each algorithm, the response vs Et is saved, the parameters are saved,
+   and the output calibration file is made and saved as calibration.txt.
+   
+10) Copy the calibration text file to the MCJet/data area and give it a name
+    that identifies both the algorithm and the software release of the sample.
+    Create a .cff file that contains that name: 
+       string tagName = 'myCalibrationName'
+
+11) Modify corrected jet config files to point at your full sample.
+    Modify CorJetCSA06_MidPointR5.cfg and write out CorJet_MidPointR5.cfg, etc.
+    
+12) Submit the condor jobs for corrected jet response histograms:
+     condor_submit CondorJob_MidPointR7_Cor
+     condor_submit CondorJob_MidPointR5_Cor
+     condor_submit CondorJob_IterativeR5_Cor
+     condor_submit CondorJob_Kt_Cor
+     
+13) When the jobs complete, make the corrected jet analysis scripts
+      source makeCorrResponseScripts.csh
+   This puts you in the cor directory. Run the 
+   scripts in the appropriate sub-directory of cor:
+     cd MC5; source runCorrResponse.csh; cd ..;
+     cd MC7; source runCorrResponse.csh; cd ..;
+     cd IC5; source runCorrResponse.csh; cd ..;
+     cd KT;  source runCorrResponse.csh; cd ..;
+   Type .q at the root prompt between each set of plots. The gaus fits 
+   are saved in the /tmp sub-directory for each algorithm, and the corrected 
+   response vs Et is saved.

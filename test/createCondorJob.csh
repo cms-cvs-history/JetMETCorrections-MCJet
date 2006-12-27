@@ -18,9 +18,9 @@ Executable = SimJet_MidPointR5.csh
 Requirements = Memory >= 199 &&OpSys == "LINUX"&& (Arch != "DUMMY" )
 Should_Transfer_Files = NO
 +EOF
-echo 'Output = '$PWD/log/'condor_$(Cluster)_$(Process).stdout' >> CondorJob_MidPointR5
-echo 'Error = '$PWD/log/'condor_$(Cluster)_$(Process).stderr' >> CondorJob_MidPointR5
-echo 'Log = '$PWD/log/'condor_$(Cluster)_$(Process).log' >> CondorJob_MidPointR5
+echo 'Output = '$PWD/log/'SimJet_MidPointR5_$(Process).stdout' >> CondorJob_MidPointR5
+echo 'Error = '$PWD/log/'SimJet_MidPointR5_$(Process).stderr' >> CondorJob_MidPointR5
+echo 'Log = '$PWD/log/'SimJet_MidPointR5_$(Process).condorlog' >> CondorJob_MidPointR5
 cat >> CondorJob_MidPointR5 <<+EOF2
 notify_user = ${LOGNAME}@FNAL.GOV
 Queue 1

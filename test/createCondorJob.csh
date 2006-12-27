@@ -22,7 +22,7 @@ echo 'Output = '$PWD/log/'condor_$(Cluster)_$(Process).stdout' >> CondorJob_MidP
 echo 'Error = '$PWD/log/'condor_$(Cluster)_$(Process).stderr' >> CondorJob_MidPointR5
 echo 'Log = '$PWD/log/'condor_$(Cluster)_$(Process).log' >> CondorJob_MidPointR5
 cat >> CondorJob_MidPointR5 <<+EOF2
-notify_user = rharris@FNAL.GOV
+notify_user = ${LOGNAME}@FNAL.GOV
 Queue 1
 +EOF2
 #

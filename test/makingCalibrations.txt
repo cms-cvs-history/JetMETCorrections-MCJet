@@ -1,7 +1,10 @@
-To make the MCJet calibrations:
+Instructions for making the MCJet calibrations on the CMS UAF at Fermilab.
+Author: Robert Harris
+Date: December 27, 2006
 
-1) Get the and build the code for your release and go to test area
+1) Get and build the code for your release and go to test area:
 
+     source /afs/fnal.gov/files/code/cms/setup/cshrc uaf
      scramv1 project CMSSW CMSSW_1_0_3
      cd CMSSW_1_0_3/src
      cmscvsroot CMSSW
@@ -22,18 +25,17 @@ To make the MCJet calibrations:
    Modify SimJetCSA06*.cfg and write out SimJet*.cfg without the CSA06
    (SimJet_MidpointR5.cfg,  SimJet_MidpointR7.cfg, SimJet_IterativeR5.cfg, etc.)
    
-5) Run createCondorJob.csh and examine the output job for MidpointR5.
-
-6) Submit the job with condor_submit CondorJob_MidPointR5
-
-7) Create the rest of the condor jobs including corrected ones
-     source moreCondorJobs.csh 
-   and submit them
+5) Make the condor jobs:
+     source createCondorJob.csh 
+   Examine the output job on stdout. If it looks OK, make the rest
+     source moreCondorJobs.csh
+   and submit the jobs
+     condor_submit CondorJob_MidPointR5
      condor_submit CondorJob_MidPointR7
      condor_submit CondorJob_IterativeR5
      condor_submit CondorJob_Kt
-     
-8) When the jobs complete, make the checking scripts
+      
+6) When the jobs complete, make the checking scripts
      source makeCheckingScripts.csh
    This puts you in the check directory. Run the 
    scripts in the appropriate sub-directory of check:
@@ -44,42 +46,42 @@ To make the MCJet calibrations:
    examining the histos and type .q at the root prompt between plots.
    The histograms are saved as .gif, .eps and .ps files.
 
-9) Make the analysis scripts from the MCJet/test directory
+7) Make the analysis scripts from the MCJet/test directory
      source makeAnalysisScripts.csh
    This puts you in the ana directory. Run the 
    scripts in the appropriate sub-directory of ana:
      cd MC5; source runAna.csh; cd ..;
-     cd MC7; source runAna.csh; cd ..;
-     cd IC5; source runAna.csh; cd ..;
-     cd KT;  source runAna.csh; cd ..;
+     cd MC7; source runAna.csh; cd ..; NOT TESTED YET
+     cd IC5; source runAna.csh; cd ..; NOT TESTED YET
+     cd KT;  source runAna.csh; cd ..; NOT TESTED YET
    make sure the 1 sigma Gaussian fits are working and the fit of
    the response versus Et is working. Type .q at the root prompt between
    each set of plots. The gaus fits are saved in the /tmp sub-directory for
    each algorithm, the response vs Et is saved, the parameters are saved,
    and the output calibration file is made and saved as calibration.txt.
    
-10) Copy the calibration text file to the MCJet/data area and give it a name
-    that identifies both the algorithm and the software release of the sample.
-    Create a .cff file that contains that name: 
+8) Copy the calibration text file to the MCJet/data area and give it a name
+   that identifies both the algorithm and the software release of the sample.
+   Create a .cff file that contains that name: 
        string tagName = 'myCalibrationName'
 
-11) Modify corrected jet config files to point at your full sample.
-    Modify CorJetCSA06_MidPointR5.cfg and write out CorJet_MidPointR5.cfg, etc.
+9) Modify corrected jet config files to point at your full sample.
+   Modify CorJetCSA06_MidPointR5.cfg and write out CorJet_MidPointR5.cfg, etc.
     
-12) Submit the condor jobs for corrected jet response histograms:
+10) Submit the condor jobs for corrected jet response histograms:
      condor_submit CondorJob_MidPointR7_Cor
      condor_submit CondorJob_MidPointR5_Cor
      condor_submit CondorJob_IterativeR5_Cor
      condor_submit CondorJob_Kt_Cor
      
-13) When the jobs complete, make the corrected jet analysis scripts
+11) When the jobs complete, make the corrected jet analysis scripts
       source makeCorrResponseScripts.csh
    This puts you in the cor directory. Run the 
    scripts in the appropriate sub-directory of cor:
      cd MC5; source runCorrResponse.csh; cd ..;
-     cd MC7; source runCorrResponse.csh; cd ..;
-     cd IC5; source runCorrResponse.csh; cd ..;
-     cd KT;  source runCorrResponse.csh; cd ..;
+     cd MC7; source runCorrResponse.csh; cd ..; NOT TESTED YET
+     cd IC5; source runCorrResponse.csh; cd ..; NOT TESTED YET
+     cd KT;  source runCorrResponse.csh; cd ..; NOT TESTED YET
    Type .q at the root prompt between each set of plots. The gaus fits 
    are saved in the /tmp sub-directory for each algorithm, and the corrected 
    response vs Et is saved.

@@ -256,7 +256,7 @@ ye[17]=EtGenJetEt1000Eta6->GetRMS() / sqrt(EtGenJetEt1000Eta6->GetEntries());
 //ye[20]=EtGenJetEt2900Eta6->GetRMS() / sqrt(EtGenJetEt2900Eta6->GetEntries());
 //ye[21]=EtGenJetEt4500Eta6->GetRMS() / sqrt(EtGenJetEt4500Eta6->GetEntries());
 
-ofstream outFile("CorrResponse_10_1sigma.dat");
+ofstream outFile("CorrResponse_10.dat");
 for (Int_t i=0; i<n-4; i++){
   outFile << "  " << y[i] << "  " << x[i] << "  " << xe[i] << endl;
 }
@@ -287,7 +287,7 @@ l = new TLine(10,1.0,1000,1.0);
 l->SetLineStyle(2);
 l->Draw();
   
-c2hA.Print("CorrResponse_10_1sigma.eps");
-c2hA.Print("CorrResponse_10_1sigma.gif");
+c2hA.Print("CorrResponse_10.eps");
+c2hA.Print("CorrResponse_10.gif");
 
 }

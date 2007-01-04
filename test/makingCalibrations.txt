@@ -1,6 +1,6 @@
 Instructions for making the MCJet calibrations on the CMS UAF at Fermilab.
 Author: Robert Harris
-Date: December 27, 2006
+Date: January 4, 2007
 
 1) Get and build the code for your release and go to test area:
 
@@ -8,7 +8,7 @@ Date: December 27, 2006
      scramv1 project CMSSW CMSSW_1_0_3
      cd CMSSW_1_0_3/src
      cmscvsroot CMSSW
-     cvs co -r JetResponseV4 JetMETCorrections/MCJet
+     cvs co -r JetResponseV5 JetMETCorrections/MCJet
      eval `scramv1 runtime -csh`
      scramv1 b
      cd JetMETCorrections/MCJet/test
@@ -80,7 +80,7 @@ Date: December 27, 2006
    scripts in the appropriate sub-directory of cor:
      cd MC5; source runCorrResponse.csh; cd ..;
      cd MC7; source runCorrResponse.csh; cd ..; NOT TESTED YET
-     cd IC5; source runCorrResponse.csh; cd ..; NOT TESTED YET
+     cd IC5; source runCorrResponse.csh; cd ..; 
      cd KT;  source runCorrResponse.csh; cd ..; NOT TESTED YET
    Type .q at the root prompt between each set of plots. The gaus fits 
    are saved in the /tmp sub-directory for each algorithm, and the corrected 

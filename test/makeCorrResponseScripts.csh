@@ -18,6 +18,7 @@ cp runCorrResponse.csh cor/MC7
 cd cor/MC5
 cat > sedscript <<+EOF
 s/R05/R07/
+s/R=0.5/R=0.7/
 +EOF
 foreach file (CorrResponse*.C)
   sed -f sedscript $file > ../MC7/$file
@@ -32,6 +33,7 @@ cp runCorrResponse.csh cor/IC5
 cd cor/MC5
 cat > sedscript <<+EOF
 s/MidPoint/Iter/
+s/Midpoint/Iterative/
 +EOF
 foreach file (CorrResponse*.C)
   sed -f sedscript $file > ../IC5/$file
@@ -46,6 +48,7 @@ cp runCorrResponse.csh cor/KT
 cd cor/MC5
 cat > sedscript <<+EOF
 s/MidPoint_R05/Kt/
+s/Midpoint R=0.5/Kt D=1.0/
 +EOF
 foreach file (CorrResponse*.C)
   sed -f sedscript $file > ../KT/$file

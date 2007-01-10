@@ -1,6 +1,6 @@
 Instructions for making the MCJet calibrations on the CMS UAF at Fermilab.
 Author: Robert Harris
-Date: January 4, 2007
+Date: January 10, 2007
 
 1) Get and build the code for your release and go to test area:
 
@@ -8,7 +8,7 @@ Date: January 4, 2007
      scramv1 project CMSSW CMSSW_1_0_3
      cd CMSSW_1_0_3/src
      cmscvsroot CMSSW
-     cvs co -r JetResponseV5 JetMETCorrections/MCJet
+     cvs co -r JetResponseV6 JetMETCorrections/MCJet
      eval `scramv1 runtime -csh`
      scramv1 b
      cd JetMETCorrections/MCJet/test
@@ -22,9 +22,8 @@ Date: January 4, 2007
    and look at output file SimJetResponseMidPoint_R05_test.root
 
 4) Modify full config files to point at your full sample
-   Modify SimJetCSA06*.cfg and write out SimJet*.cfg without the CSA06
-   (SimJet_MidpointR5.cfg,  SimJet_MidpointR7.cfg, SimJet_IterativeR5.cfg, etc.)
-   
+   Modify SimJet_MidpointR5.cfg,  SimJet_MidpointR7.cfg, SimJet_IterativeR5.cfg, SimJet_Kt.cfg
+      
 5) Make the condor jobs:
      source createCondorJob.csh 
    Examine the output job on stdout. If it looks OK, make the rest
@@ -51,9 +50,9 @@ Date: January 4, 2007
    This puts you in the ana directory. Run the 
    scripts in the appropriate sub-directory of ana:
      cd MC5; source runAna.csh; cd ..;
-     cd MC7; source runAna.csh; cd ..; NOT TESTED YET
-     cd IC5; source runAna.csh; cd ..; NOT TESTED YET
-     cd KT;  source runAna.csh; cd ..; NOT TESTED YET
+     cd MC7; source runAna.csh; cd ..;
+     cd IC5; source runAna.csh; cd ..; 
+     cd KT;  source runAna.csh; cd ..; THIS GAVE BAD FITS AT LOW ET DUE TO BUGGY KT ALG
    make sure the 1 sigma Gaussian fits are working and the fit of
    the response versus Et is working. Type .q at the root prompt between
    each set of plots. The gaus fits are saved in the /tmp sub-directory for
@@ -66,20 +65,20 @@ Date: January 4, 2007
        string tagName = 'myCalibrationName'
 
 9) Modify corrected jet config files to point at your full sample.
-   Modify CorJetCSA06_MidPointR5.cfg and write out CorJet_MidPointR5.cfg, etc.
+   Modify CorrJet_MidpointR5.cfg,  CorrJet_MidpointR7.cfg, CorrJet_IterativeR5.cfg
     
 10) Submit the condor jobs for corrected jet response histograms:
      condor_submit CondorJob_MidPointR7_Cor
      condor_submit CondorJob_MidPointR5_Cor
      condor_submit CondorJob_IterativeR5_Cor
-     condor_submit CondorJob_Kt_Cor
+     condor_submit CondorJob_Kt_Cor  NOT TESTED YET BECAUSE OF PROBLEMS WITH KT ALG RESPONSE
      
 11) When the jobs complete, make the corrected jet analysis scripts
       source makeCorrResponseScripts.csh
    This puts you in the cor directory. Run the 
    scripts in the appropriate sub-directory of cor:
      cd MC5; source runCorrResponse.csh; cd ..;
-     cd MC7; source runCorrResponse.csh; cd ..; NOT TESTED YET
+     cd MC7; source runCorrResponse.csh; cd ..; 
      cd IC5; source runCorrResponse.csh; cd ..; 
      cd KT;  source runCorrResponse.csh; cd ..; NOT TESTED YET
    Type .q at the root prompt between each set of plots. The gaus fits 

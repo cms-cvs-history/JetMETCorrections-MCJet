@@ -7,19 +7,41 @@
 # these default CMSSW jets made with scheme B noise suppression.
 # 
 
-	module corJetIcone5 = MCJet {
+   es_source MCCorrectorIcone5 = MCJetCorrectionService {
+            string tagName = 'Volume_II_Jet_Recommendations_number_2' 
+            string label = 'MCCorrectorIcone5' 
+    }
+
+   es_prefer MCCorrectorIcone5 = MCJetCorrectionService {}
+
+   es_source MCCorrectorMcone5 = MCJetCorrectionService {
+            string tagName = 'Volume_II_Jet_Recommendations_number_7'
+            string label = 'MCCorrectorMcone5' 
+    }
+
+   es_source MCCorrectorMcone7 = MCJetCorrectionService {
+            string tagName = 'Volume_II_Jet_Recommendations_number_8'
+            string label = 'MCCorrectorMcone7' 
+    }
+
+
+
+	module corJetIcone5 = JetCorrectionProducer {
                 InputTag src   = iterativeCone5CaloJets
-                string tagName = 'Volume_II_Jet_Recommendations_number_2'  
+                vstring correctors = {"MCCorrectorIcone5"}
+                untracked string alias = "corJetIcone5"
         }
 
-	module corJetMcone5 = MCJet {
+	module corJetMcone5 = JetCorrectionProducer {
                 InputTag src = midPointCone5CaloJets
-                string tagName = 'Volume_II_Jet_Recommendations_number_7'  
+                vstring correctors = {"MCCorrectorMcone5"}
+                untracked string alias = "corJetMcone5"
         }
 
-	module corJetMcone7 = MCJet {
+	module corJetMcone7 = JetCorrectionProducer {
                 InputTag src = midPointCone7CaloJets
-                string tagName = 'Volume_II_Jet_Recommendations_number_8'  
+                vstring correctors = {"MCCorrectorMcone7"}
+                untracked string alias = "corJetMcone7"
         }
 
         sequence JetCorrections = {  corJetIcone5, corJetMcone5, corJetMcone7}

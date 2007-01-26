@@ -31,7 +31,7 @@ Queue 1
 cat > SimJet_MidPointR5.csh <<+EOF3
 #!/bin/tcsh
 date
-source /afs/fnal.gov/files/code/cms/setup/cshrc uaf
+source /uscmst1/prod/sw/cms/setup/cshrc uaf
 +EOF3
 echo 'cd '$PWD >> SimJet_MidPointR5.csh 
 echo 'eval `scramv1 runtime -csh`' >> SimJet_MidPointR5.csh

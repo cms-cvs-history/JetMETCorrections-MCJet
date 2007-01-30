@@ -11,7 +11,7 @@
 #include <cmath>
 #include <functional>
 
-//#include <CLHEP/Vector/TwoVector.h>
+#include <CLHEP/Vector/TwoVector.h>
 
 #include "JetMETCorrections/MCJet/interface/SimJetResponseAnalysis.h"
 #include "JetMETCorrections/MCJet/interface/JetUtilMC.h"
@@ -311,6 +311,9 @@ void SimJetResponseAnalysis::bookSimJetResponse() {
       PtMaxBin=10000.;
     }
     
+
+
+
     for(int ie=0;ie<NEtaBins;ie++){
       //      std::ostringstream oie; oie << RecJetEtaBins_[ie]; 
 
@@ -463,14 +466,11 @@ void SimJetResponseAnalysis::SimulatedJetResponse(const GenJetCollection& genjet
 	  float rr=radius(i,j);
 	  if(rr<rmin){rmin=rr;caljet=j;}
 	}
-    
 	double CaloJetPt=caljet->pt();
 	double CaloJetEt=caljet->et();
 	double CaloJetEta=caljet->eta();
 	double ResponsePt=CaloJetPt/GenJetPt;
 	double ResponseEt=CaloJetEt/GenJetEt;
-
-        if(CaloJetPt<RecJetPtMin_) continue;
 
 	int ipt = GetPtBin(GenJetPt);
 	int iet = GetPtBin(GenJetEt);

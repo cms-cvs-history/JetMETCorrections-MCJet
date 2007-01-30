@@ -12,8 +12,6 @@
             string label = 'MCCorrectorIcone5' 
     }
 
-   es_prefer MCCorrectorIcone5 = MCJetCorrectionService {}
-
    es_source MCCorrectorMcone5 = MCJetCorrectionService {
             string tagName = 'Volume_II_Jet_Recommendations_number_7'
             string label = 'MCCorrectorMcone5' 

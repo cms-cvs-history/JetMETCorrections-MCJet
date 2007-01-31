@@ -1,0 +1,3 @@
+# keep backward compatibility for a while
+include "JetMETCorrections/MCJet/data/MCJetCorrections.cff"
+sequence JetCorrections = {  MCJetCorrections }

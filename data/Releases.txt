@@ -5,4 +5,4 @@ JetResponseV4:  Internal tag for development of automatic jet fitting.
 JetResponseV5:  CSA06 Jet Corrections for MC5, IC5 and MC7 RELEASED on 1/12/07
 JetResponseV6:  Intenal tag for automatic fitting version of above corrections.
 JetResponseV7:  CMSSW_1_2_0 corrections for MC5, IC5 released on 2/5/05
-JetResponseV8:  IN DEVELOPMENT: Same as above but with Sergey's MC7 correction
+JetResponseV8:  Same as above but with Sergey's MC7 correction. Released 2/15/07

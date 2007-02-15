@@ -1,3 +1,45 @@
-# keep backward compatibility for a while
-include "JetMETCorrections/MCJet/data/MCJetCorrections.cff"
-sequence JetCorrections = {  MCJetCorrections }
+# File: JetCorrections.cff
+# Author: R. Harris
+# Date: 7/24/06
+#
+# Jet corrections for the icone5, mcone5, and mcone7 jets.
+# These are the most appropriate available ORCA derived corrections for 
+# these default CMSSW jets made with scheme B noise suppression.
+# 
+
+   es_source MCCorrectorIcone5 = MCJetCorrectionService {
+            string tagName = 'Volume_II_Jet_Recommendations_number_2' 
+            string label = 'MCCorrectorIcone5' 
+    }
+
+   es_source MCCorrectorMcone5 = MCJetCorrectionService {
+            string tagName = 'Volume_II_Jet_Recommendations_number_7'
+            string label = 'MCCorrectorMcone5' 
+    }
+
+   es_source MCCorrectorMcone7 = MCJetCorrectionService {
+            string tagName = 'Volume_II_Jet_Recommendations_number_8'
+            string label = 'MCCorrectorMcone7' 
+    }
+
+
+
+	module corJetIcone5 = JetCorrectionProducer {
+                InputTag src   = iterativeCone5CaloJets
+                vstring correctors = {"MCCorrectorIcone5"}
+                untracked string alias = "corJetIcone5"
+        }
+
+	module corJetMcone5 = JetCorrectionProducer {
+                InputTag src = midPointCone5CaloJets
+                vstring correctors = {"MCCorrectorMcone5"}
+                untracked string alias = "corJetMcone5"
+        }
+
+	module corJetMcone7 = JetCorrectionProducer {
+                InputTag src = midPointCone7CaloJets
+                vstring correctors = {"MCCorrectorMcone7"}
+                untracked string alias = "corJetMcone7"
+        }
+
+        sequence JetCorrections = {  corJetIcone5, corJetMcone5, corJetMcone7}

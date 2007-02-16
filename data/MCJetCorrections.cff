@@ -8,38 +8,36 @@
 # 
 
    es_source MCJetCorrectorIcone5 = MCJetCorrectionService {
-            string tagName = 'Volume_II_Jet_Recommendations_number_2' 
+            string tagName = 'CMSSW_120_Iterative_Cone_05'
             string label = 'MCJetCorrectorIcone5' 
     }
 
-   es_prefer MCJetCorrectorIcone5 = MCJetCorrectionService {}
-
    es_source MCJetCorrectorMcone5 = MCJetCorrectionService {
-            string tagName = 'Volume_II_Jet_Recommendations_number_7'
+            string tagName = 'CMSSW_120_Midpoint_Cone_05'
             string label = 'MCJetCorrectorMcone5' 
     }
 
    es_source MCJetCorrectorMcone7 = MCJetCorrectionService {
-            string tagName = 'Volume_II_Jet_Recommendations_number_8'
+            string tagName = 'CMSSW_120_Midpoint_Cone_07'
             string label = 'MCJetCorrectorMcone7' 
     }
 
 
 
 	module MCJetCorJetIcone5 = JetCorrectionProducer {
-                InputTag src   = iterativeCone5CaloJets
+                InputTag src   = iterativeCone5CaloJet
                 vstring correctors = {"MCJetCorrectorIcone5"}
                 untracked string alias = "corJetIcone5"
         }
 
 	module MCJetCorJetMcone5 = JetCorrectionProducer {
-                InputTag src = midPointCone5CaloJets
+                InputTag src = midPointCone5CaloJet
                 vstring correctors = {"MCJetCorrectorMcone5"}
                 untracked string alias = "corJetMcone5"
         }
 
 	module MCJetCorJetMcone7 = JetCorrectionProducer {
-                InputTag src = midPointCone7CaloJets
+                InputTag src = midPointCone7CaloJet
                 vstring correctors = {"MCJetCorrectorMcone7"}
                 untracked string alias = "corJetMcone7"
         }

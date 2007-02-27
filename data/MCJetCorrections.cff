@@ -25,19 +25,19 @@
 
 
 	module MCJetCorJetIcone5 = JetCorrectionProducer {
-                InputTag src   = iterativeCone5CaloJet
+                InputTag src   = iterativeCone5CaloJets
                 vstring correctors = {"MCJetCorrectorIcone5"}
                 untracked string alias = "corJetIcone5"
         }
 
 	module MCJetCorJetMcone5 = JetCorrectionProducer {
-                InputTag src = midPointCone5CaloJet
+                InputTag src = midPointCone5CaloJets
                 vstring correctors = {"MCJetCorrectorMcone5"}
                 untracked string alias = "corJetMcone5"
         }
 
 	module MCJetCorJetMcone7 = JetCorrectionProducer {
-                InputTag src = midPointCone7CaloJet
+                InputTag src = midPointCone7CaloJets
                 vstring correctors = {"MCJetCorrectorMcone7"}
                 untracked string alias = "corJetMcone7"
         }

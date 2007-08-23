@@ -60,13 +60,13 @@
         }
 
       module MCJetCorJetFastjet10 = JetCorrectionProducer {
-                InputTag src = Fastjet10CaloJets
+                InputTag src = fastjet10CaloJets
                 vstring correctors = {"MCJetCorrectorFastjet10"}
                 untracked string alias = "MCJetCorJetFastjet10"
         }
 
       module MCJetCorJetFastjet6 = JetCorrectionProducer {
-                InputTag src = Fastjet6CaloJets
+                InputTag src = fastjet6CaloJets
                 vstring correctors = {"MCJetCorrectorFastjet6"}
                 untracked string alias = "MCJetCorJetFastjet6"
         }

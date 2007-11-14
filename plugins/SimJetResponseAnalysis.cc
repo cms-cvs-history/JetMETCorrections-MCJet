@@ -22,12 +22,9 @@
 #include "Geometry/Records/interface/IdealGeometryRecord.h"
 
 #include "DataFormats/JetReco/interface/CaloJet.h"
-#include "DataFormats/METReco/interface/CaloMET.h"
-#include "DataFormats/JetReco/interface/CaloJetCollection.h"
+#include "DataFormats/JetReco/interface/CaloJetfwd.h"
 #include "DataFormats/JetReco/interface/GenJet.h"
-#include "DataFormats/METReco/interface/GenMET.h"
-#include "DataFormats/JetReco/interface/GenJetCollection.h"
-
+#include "DataFormats/JetReco/interface/GenJetfwd.h"
 
 #include "JetMETCorrections/MCJet/src/CaloTowerBoundriesMC.h"
 #include "JetMETCorrections/MCJet/src/JetUtilMC.h"

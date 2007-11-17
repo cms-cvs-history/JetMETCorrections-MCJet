@@ -1,0 +1,4 @@
+# L5 flavor corrections for gluons
+# parametrization: p2+p3*logPt+p4*logPt^2, constant if Pt<p0 or Pt>p1
+# etamin etamax #ofparameters ptmin ptmax      p2           p3           p4
+  -999    999        5         50   3000  9.65646e-01  5.87318e-02 -1.23812e-02

@@ -6,6 +6,7 @@
 <use name=DataFormats/JetReco>
 <use name=JetMETCorrections/Objects>
 <use name=DataFormats/Common>
+<use name=CondFormats/JetMETObjects>
 <flags SEAL_PLUGIN_NAME="JetMETCorrectionsMCJet">
 <export>
    <lib name=JetMETCorrectionsMCJet>

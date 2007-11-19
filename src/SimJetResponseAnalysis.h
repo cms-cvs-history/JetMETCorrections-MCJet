@@ -18,13 +18,24 @@
 #include <vector>
 #include <map>
 
+//#include <CLHEP/Vector/TwoVector.h>
+
 #include "FWCore/Framework/interface/EDAnalyzer.h"
-#include "DataFormats/Common/interface/EDProductfwd.h"
+#include "FWCore/Framework/interface/Event.h"
+#include "FWCore/Framework/interface/Handle.h"
+#include "FWCore/ParameterSet/interface/ParameterSet.h"
+#include "FWCore/Framework/interface/EventSetup.h"
+#include "FWCore/Framework/interface/ESHandle.h"
+#include "Geometry/Records/interface/IdealGeometryRecord.h"
+
+#include "DataFormats/JetReco/interface/CaloJet.h"
 #include "DataFormats/JetReco/interface/CaloJetfwd.h"
+#include "DataFormats/JetReco/interface/GenJet.h"
 #include "DataFormats/JetReco/interface/GenJetfwd.h"
+
 #include "DataFormats/METReco/interface/GenMETCollection.h"
 #include "DataFormats/METReco/interface/CaloMETCollection.h"
-
+#include "CaloTowerBoundriesMC.h"
 
 
 class SimJetResponseAnalysis : public edm::EDAnalyzer {
@@ -36,8 +47,8 @@ class SimJetResponseAnalysis : public edm::EDAnalyzer {
   virtual void endJob();
 
   SimJetResponseAnalysis();
-  void analyze(const reco::GenJetCollection& genjets,const reco::CaloJetCollection& recjets,
-               const reco::GenMETCollection& genmet, const reco::CaloMETCollection& recmet);
+  void analyze(const GenJetCollection& genjets,const CaloJetCollection& recjets,
+               const GenMETCollection& genmet, const CaloMETCollection& recmet);
   void done();
 
 
@@ -60,7 +71,7 @@ class SimJetResponseAnalysis : public edm::EDAnalyzer {
   void GetSimJetResponse();
   void bookSimJetResponse();
 
-  void SimulatedJetResponse(const reco::GenJetCollection& genjets,const reco::CaloJetCollection& calojets);
+  void SimulatedJetResponse(const GenJetCollection& genjets,const CaloJetCollection& calojets);
 
 private:
 

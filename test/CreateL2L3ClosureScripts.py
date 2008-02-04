@@ -1,8 +1,9 @@
+#! /usr/bin/env python
+
 #****************************************************************
 #               Dr. Konstantinos Kousouris                      *
 #                 Fermilab, Batavia, IL                         *
 #****************************************************************
-#! /usr/bin/env python
 import os
 #******************   definitions  **********************************
 DATA_PATH =          "/uscms_data/d1/cmsjtmet/kkousour/"

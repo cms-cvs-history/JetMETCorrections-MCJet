@@ -1,6 +1,6 @@
 //
 // Original Author:  Fedor Ratnikov Dec 27, 2006
-// $Id: L4EMFCorrector.cc,v 1.5 2007/03/30 23:47:55 fedor Exp $
+// $Id: L4EMFCorrector.cc,v 1.1 2007/11/14 00:03:32 fedor Exp $
 //
 // L4 EMF Corrector
 //
@@ -17,7 +17,7 @@ using namespace std;
 
 
 L4EMFCorrector::L4EMFCorrector (const edm::ParameterSet& fConfig) {
- std::string file="JetMETCorrections/MCJet/data/"+fConfig.getParameter <std::string> ("tagName")+".txt";
+ std::string file="CondFormats/JetMETObjects/data/"+fConfig.getParameter <std::string> ("tagName")+".txt";
  edm::FileInPath f1(file);
  mSimpleCorrector = new SimpleL4EMFCorrector (f1.fullPath());
 }

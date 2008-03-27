@@ -17,7 +17,7 @@ using namespace std;
 
 
 L4EMFCorrector::L4EMFCorrector (const edm::ParameterSet& fConfig) {
- std::string file="CondFormats/JetMETObjects/data/"+fConfig.getParameter <std::string> ("tagName")+".txt";
+ std::string file="JetMETCorrections/MCJet/data/"+fConfig.getParameter <std::string> ("tagName")+".txt";
  edm::FileInPath f1(file);
  mSimpleCorrector = new SimpleL4EMFCorrector (f1.fullPath());
 }

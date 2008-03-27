@@ -21,8 +21,7 @@ L3AbsoluteCorrector::~L3AbsoluteCorrector () {
 } 
 
 double L3AbsoluteCorrector::correction (const LorentzVector& fJet) const {
-  throw cms::Exception("Invalid jet type") << "L3AbsoluteCorrector is applicable to CaloJets only";
-  return 1;
+  return mSimpleCorrector->correctionPtEta(fJet.pt(), fJet.eta());
 }
 
 double L3AbsoluteCorrector::correction (const reco::Jet& fJet, const edm::Event& fEvent, const edm::EventSetup& fSetup) const {

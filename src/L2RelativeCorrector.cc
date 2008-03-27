@@ -21,8 +21,7 @@ L2RelativeCorrector::~L2RelativeCorrector () {
 } 
 
 double L2RelativeCorrector::correction (const LorentzVector& fJet) const {
-  throw cms::Exception("Invalid jet type") << "L2RelativeCorrector is applicable to CaloJets only";
-  return 1;
+  return mSimpleCorrector->correctionPtEta(fJet.pt(), fJet.eta());
 }
 
 double L2RelativeCorrector::correction (const reco::Jet& fJet, const edm::Event& fEvent, const edm::EventSetup& fSetup) const {

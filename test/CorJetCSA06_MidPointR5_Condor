@@ -1,9 +1,0 @@
-universe = vanilla
-Executable = CorJetCSA06_MidPointR5.csh
-Requirements = Memory >= 199 &&OpSys == "LINUX"&& (Arch != "DUMMY" )
-Should_Transfer_Files = NO
-Output = /uscms_data/d1/rharris/CMSSW_1_0_3/src/JetMETCorrections/MCJet/test/condor_$(Cluster)_$(Process).stdout
-Error = /uscms_data/d1/rharris/CMSSW_1_0_3/src/JetMETCorrections/MCJet/test/condor_$(Cluster)_$(Process).stderr
-Log = /uscms_data/d1/rharris/CMSSW_1_0_3/src/JetMETCorrections/MCJet/test/condor_$(Cluster)_$(Process).log
-notify_user = rharris@FNAL.GOV
-Queue 1

@@ -1,0 +1,24 @@
+// services providing different jet flavor corrections
+
+//
+//   gluons from TTbar currently not supported! Returns corr = 1.
+//
+   es_source L5FlavorJetCorrectorGluon = L5FlavorCorrectionService {
+            string label = 'L5FlavorJetCorrectorGluon' 
+            string tagName = 'L5Flavor_g_fromTTbar_iterativeCone5'
+    }
+
+   es_source L5FlavorJetCorrectorUds = L5FlavorCorrectionService {
+            string label = 'L5FlavorJetCorrectorUds' 
+            string tagName = 'L5Flavor_uds_fromTTbar_iterativeCone5'
+    }
+
+   es_source L5FlavorJetCorrectorC = L5FlavorCorrectionService {
+            string label = 'L5FlavorJetCorrectorC' 
+            string tagName = 'L5Flavor_c_fromTTbar_iterativeCone5'
+    }
+
+   es_source L5FlavorJetCorrectorB = L5FlavorCorrectionService {
+            string label = 'L5FlavorJetCorrectorB' 
+            string tagName = 'L5Flavor_b_fromTTbar_iterativeCone5'
+    }

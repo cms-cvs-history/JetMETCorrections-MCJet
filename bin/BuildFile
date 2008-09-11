@@ -1,3 +1,5 @@
+<use name=JetMETAnalysis/JetUtilities>
+<use name=rootgraphics>
 <use name=root>
 
 <bin name=ReadTree file=ReadTree.cc>
